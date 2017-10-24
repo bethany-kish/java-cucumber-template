@@ -6,11 +6,15 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testcraft.Pages.TrainlineHomepage;
 
-public class TrainlineSearchStepdefs {
-    public WebDriver driver;
-    TrainlineHomepage trainlineHomepage = new TrainlineHomepage();
+import static org.testcraft.stepDefs.Hooks.driver;
 
-    public TrainlineSearchStepdefs() { driver =  Hooks.driver;}
+public class TrainlineSearchStepdefs {
+
+    public TrainlineSearchStepdefs() {
+        driver = driver;
+    }
+
+    TrainlineHomepage trainlineHomepage = new TrainlineHomepage(driver);
 
     @Given("^I am on TheTrainline\\.com$")
     public void openPage() throws Throwable {

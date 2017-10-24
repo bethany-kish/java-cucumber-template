@@ -1,5 +1,6 @@
 Feature: Plan Journey
 
+
     Scenario: Plan Journey - list times and prices
         Given I am on TheTrainline.com
         When I select the journey from "Brighton" to "London"
