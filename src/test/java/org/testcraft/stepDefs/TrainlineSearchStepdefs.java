@@ -4,6 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.testcraft.Pages.TimetablePage;
 import org.testcraft.Pages.TrainlineHomepage;
 
 import static org.testcraft.stepDefs.Hooks.driver;
@@ -15,6 +16,7 @@ public class TrainlineSearchStepdefs {
     }
 
     TrainlineHomepage trainlineHomepage = new TrainlineHomepage(driver);
+    TimetablePage timetablePage = new TimetablePage(driver);
 
     @Given("^I am on TheTrainline\\.com$")
     public void openPage() throws Throwable {
@@ -34,7 +36,7 @@ public class TrainlineSearchStepdefs {
 
     @Then("^train times should be displayed$")
     public void confirmTrainTimes() throws Throwable {
-        trainlineHomepage.confirmTrainTimes();
+        timetablePage.confirmTrainTimes();
     }
 
     @When("^I select the return option$")

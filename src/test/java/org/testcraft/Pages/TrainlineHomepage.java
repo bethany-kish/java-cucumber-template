@@ -43,9 +43,7 @@ public class TrainlineHomepage extends BasePage {
 
     }
 
-    public void confirmTrainTimes(){
-        Assert.assertTrue(driver.findElement(By.cssSelector("table.matrix-table.matrix-out")).isDisplayed());
-    }
+
 
     public void selectReturn() {
         WebElement returnRadio = driver.findElement(By.cssSelector("input#journey-type-return"));
