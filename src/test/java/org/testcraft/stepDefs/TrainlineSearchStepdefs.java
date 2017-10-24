@@ -17,7 +17,7 @@ public class TrainlineSearchStepdefs {
         trainlineHomepage.open();
     }
 
-    @When("^I select the journey from \"([^\"]*)\" to \"([^\"]*)\" $")
+    @When("^I select the journey from \"([^\"]*)\" to \"([^\"]*)\"$")
     public void selectJourney(String arg1, String arg2) throws Throwable {
         trainlineHomepage.selectJourney(arg1, arg2);
     }

@@ -2,6 +2,7 @@ package org.testcraft.Pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,10 +21,13 @@ public class TrainlineHomepage {
 
         WebElement toField = driver.findElement(By.cssSelector("#destinationStation"));
         toField.sendKeys(to);
+        toField.sendKeys(Keys.TAB);
 
     }
 
     public void clickGetTimes(){
+        WebElement closeCookies = driver.findElement(By.cssSelector(".glyphicon-remove.is-alone"));
+        closeCookies.click();
         WebElement getTimesButton = driver.findElement(By.cssSelector("#submitButton"));
         getTimesButton.click();
 
