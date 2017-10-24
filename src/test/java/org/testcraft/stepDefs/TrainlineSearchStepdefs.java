@@ -32,4 +32,14 @@ public class TrainlineSearchStepdefs {
     public void confirmTrainTimes() throws Throwable {
         trainlineHomepage.confirmTrainTimes();
     }
+
+    @When("^I select the return option$")
+    public void selectReturnOption() throws Throwable {
+        trainlineHomepage.selectReturn();
+    }
+
+    @When("^I select Tomorrow and Next Day$")
+    public void selectDayOptions() throws Throwable {
+        trainlineHomepage.selectDayOptions();
+    }
 }

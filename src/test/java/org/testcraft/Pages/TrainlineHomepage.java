@@ -41,4 +41,20 @@ public class TrainlineHomepage {
     public void confirmTrainTimes(){
         Assert.assertTrue(driver.findElement(By.cssSelector("table.matrix-table.matrix-out")).isDisplayed());
     }
+
+    public void selectReturn() {
+        WebElement returnRadio = driver.findElement(By.cssSelector("input#journey-type-return"));
+        if(!(returnRadio.isSelected())){
+            returnRadio.click();
+        }
+
+    }
+
+    public void selectDayOptions(){
+        WebElement tomorrow = driver.findElement(By.xpath("//*[contains(text(), ’Tomorrow’)]"));
+        tomorrow.click();
+
+         WebElement nextDay = driver.findElement(By.xpath("//*[contains(text(), ’Next day’)]"));
+         nextDay.click();
+    }
 }
