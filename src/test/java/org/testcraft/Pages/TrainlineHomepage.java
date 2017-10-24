@@ -15,6 +15,11 @@ public class TrainlineHomepage {
         driver.get("https://www.thetrainline.com/");
     }
 
+    public void confirmHomePage() {
+        String title = driver.getTitle();
+        Assert.assertTrue(title.contains("Trainline"));
+    }
+
     public void selectJourney(String from, String to){
         WebElement fromField = driver.findElement(By.cssSelector("#originStation"));
         fromField.sendKeys(from);

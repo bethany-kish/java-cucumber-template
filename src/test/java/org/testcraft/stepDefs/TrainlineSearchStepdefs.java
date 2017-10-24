@@ -15,6 +15,7 @@ public class TrainlineSearchStepdefs {
     @Given("^I am on TheTrainline\\.com$")
     public void openPage() throws Throwable {
         trainlineHomepage.open();
+        trainlineHomepage.confirmHomePage();
     }
 
     @When("^I select the journey from \"([^\"]*)\" to \"([^\"]*)\"$")
