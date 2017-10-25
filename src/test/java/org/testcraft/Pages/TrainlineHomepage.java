@@ -25,6 +25,7 @@ public class TrainlineHomepage extends BasePage {
     public Calendar datePlusDays;
     int dayInt;
     int monthInt;
+    String dayString;
 
     public void open() {
         driver.get("https://www.thetrainline.com/");
@@ -63,31 +64,14 @@ public class TrainlineHomepage extends BasePage {
 
     }
 
-    public void selectDayOptions() {
+    public void selectDayTomorrow() {
         WebElement tomorrow = driver.findElement(By.cssSelector("button.tomorrow"));
-        tomorrow.click();
+        tomorrow.click(); }
 
+    public void selectDayNextDay() {
         WebElement nextDay = driver.findElement(By.cssSelector("button.next-day"));
         nextDay.click();
     }
-
-
-    public void pickFutureOutDate(int numberOfDays) {
-        datePlusDays =  getDateAddDays(numberOfDays);
-       dayInt = datePlusDays.get(Calendar.DAY_OF_MONTH);
-       monthInt = datePlusDays.get(Calendar.MONTH);
-        String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "Septemper",
-             "October", "November", "December"};
-       driver.findElement(By.cssSelector("#outDate.datepicker.needsclick.hasDatepicker")).click();
-        while(!driver.findElement(By.cssSelector(".ui-datepicker-title")).getText().contains(monthNames[monthInt])){
-           driver.findElement(By.cssSelector(".ui-datepicker-next.ui-corner-all")).click();
-       }
-
-    }
-
-
-
-
 
     public Calendar getDateAddDays(int numberOfDays) {
         dateToday = Calendar.getInstance();
@@ -95,4 +79,30 @@ public class TrainlineHomepage extends BasePage {
         plusDays = dateToday;
         return plusDays;
     }
+
+
+    public void pickFutureOutDate(int numberOfDays) {
+        datePlusDays =  getDateAddDays(numberOfDays);
+       dayInt = (datePlusDays.get(Calendar.DAY_OF_MONTH));
+       monthInt = datePlusDays.get(Calendar.MONTH);
+        String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "Septemper",
+             "October", "November", "December"};
+
+        driver.findElement(By.cssSelector("#outDate.datepicker.needsclick.hasDatepicker")).click();
+
+       while(!driver.findElement(By.cssSelector(".ui-datepicker-title")).getText().contains(monthNames[monthInt])){
+           driver.findElement(By.cssSelector(".ui-datepicker-next.ui-corner-all")).click();
+       }
+
+       dayString = Integer.toString(dayInt);
+
+       driver.findElement(By.linkText(""+dayInt+"")).click();
+
+    }
+
+
+
+
+
+
 }

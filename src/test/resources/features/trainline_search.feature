@@ -12,15 +12,17 @@ Feature: Plan Journey
         Given I am on TheTrainline.com
         When I select the journey from "London" to "Brighton"
         And I select the return option
-        And I select Tomorrow and Next Day
+        And I select Tomorrow
+        And I select Next Day
         And I click to Get times and Tickets
         Then train times should be displayed
 
-      @wip
+
     Scenario: EXERCISE 5 -  outdate in the future
        Given I am on TheTrainline.com
        When I select the journey from "London" to "Brighton"
        And I select the return option
-       And I select an outdate 60 days in the future
+       And I select an outdate 58 days in the future
+       And I select Next Day
        And I click to Get times and Tickets
        Then train times should be displayed

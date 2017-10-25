@@ -44,14 +44,19 @@ public class TrainlineSearchStepdefs {
         trainlineHomepage.selectReturn();
     }
 
-    @When("^I select Tomorrow and Next Day$")
-    public void selectDayOptions() throws Throwable {
-        trainlineHomepage.selectDayOptions();
+    @When("^I select Tomorrow$")
+    public void selectDayTomorrow() throws Throwable {
+        trainlineHomepage.selectDayTomorrow();
     }
 
-    @When("^I select an outdate 60 days in the future$")
-    public void selectDaysInFuture() throws Throwable {
-        trainlineHomepage.pickFutureOutDate(90);
+    @When("^I select Next Day$")
+    public void selectDayNextDay() throws Throwable {
+        trainlineHomepage.selectDayNextDay();
+    }
+
+    @When("^I select an outdate (\\d+) days in the future$")
+    public void selectDaysInFuture(int arg1) throws Throwable {
+        trainlineHomepage.pickFutureOutDate(arg1);
     }
 
 }
