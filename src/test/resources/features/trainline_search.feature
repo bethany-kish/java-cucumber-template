@@ -26,3 +26,14 @@ Feature: Plan Journey
        And I select Next Day
        And I click to Get times and Tickets
        Then train times should be displayed
+
+
+
+    Scenario: EXERCISE 6 - plan journey for 2 adults and 2 children
+        Given I am on TheTrainline.com
+        When I select the journey from "Leeds" to "London"
+        And I select Tomorrow
+        And I select 2 Adults
+        And I select 2 Children
+        And I click to Get times and Tickets
+        Then train times should be displayed for "2 adults" and "2 children"

@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testcraft.stepDefs.Hooks;
 import org.openqa.selenium.WebDriver;
 
@@ -85,19 +86,30 @@ public class TrainlineHomepage extends BasePage {
         datePlusDays =  getDateAddDays(numberOfDays);
        dayInt = (datePlusDays.get(Calendar.DAY_OF_MONTH));
        monthInt = datePlusDays.get(Calendar.MONTH);
-        String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "Septemper",
+        String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
              "October", "November", "December"};
 
-        driver.findElement(By.cssSelector("#outDate.datepicker.needsclick.hasDatepicker")).click();
+        driver.findElement(By.cssSelector("#outDate")).click();
 
        while(!driver.findElement(By.cssSelector(".ui-datepicker-title")).getText().contains(monthNames[monthInt])){
-           driver.findElement(By.cssSelector(".ui-datepicker-next.ui-corner-all")).click();
+           driver.findElement(By.cssSelector(".ui-datepicker-next.ui-corner-all")).click();    //next button
        }
 
        dayString = Integer.toString(dayInt);
 
        driver.findElement(By.linkText(""+dayInt+"")).click();
 
+    }
+
+    public void selectAdults(int number){
+        driver.findElement(By.cssSelector(".btn-default.btn-open")).click();
+        Select adultDropdown = new Select(driver.findElement(By.cssSelector("#adults")));
+        adultDropdown.selectByValue(Integer.toString(number));
+    }
+
+    public void selectChildren(int number){
+        Select childrenDropdown = new Select(driver.findElement(By.cssSelector("#children")));
+        childrenDropdown.selectByValue(Integer.toString(number));
     }
 
 

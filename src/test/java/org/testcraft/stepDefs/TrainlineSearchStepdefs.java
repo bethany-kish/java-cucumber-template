@@ -59,4 +59,19 @@ public class TrainlineSearchStepdefs {
         trainlineHomepage.pickFutureOutDate(arg1);
     }
 
+    @When("^I select (\\d+) Adults$")
+    public void selectAdults(int arg1) throws Throwable {
+        trainlineHomepage.selectAdults(arg1);
+    }
+
+    @When ("^I select (\\d+) Children$")
+    public void selectChildren(int arg1) throws Throwable {
+        trainlineHomepage.selectChildren(arg1);
+    }
+
+    @Then ("^train times should be displayed for \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void confirmPassengerNumbers(String arg1, String arg2){
+        timetablePage.confirmPassengerNumbers(arg1, arg2);
+    }
+
 }
