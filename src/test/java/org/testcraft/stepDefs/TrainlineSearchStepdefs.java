@@ -48,4 +48,10 @@ public class TrainlineSearchStepdefs {
     public void selectDayOptions() throws Throwable {
         trainlineHomepage.selectDayOptions();
     }
+
+    @When("^I select an outdate 60 days in the future$")
+    public void selectDaysInFuture() throws Throwable {
+        trainlineHomepage.pickFutureOutDate(90);
+    }
+
 }
